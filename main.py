@@ -7,7 +7,7 @@ import openai
 
 app = Flask(__name__)
 
-openai.api_key = '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'
+openai.api_key = ''
 
 
 
@@ -17,15 +17,15 @@ def generate_log(query):
 
         # Replace the following line with an actual API call to OpenAI GPT-3
         response = openai.Completion.create(
-            engine="text-davinci-003",  # Choose the appropriate GPT-3 engine
+            engine="text-davinci-003",  
             prompt=prompt,
-            max_tokens=150,  # Adjust as needed
-            n=1,  # Number of completions to generate
-            stop=None,  # Token at which to stop generation
-            temperature=0.7,  # Control the randomness of the output (adjust as needed)
-            frequency_penalty=0.0,  # Higher value will make output more focused (adjust as needed)
-            presence_penalty=0.0,  # Higher value will make output more diverse (adjust as needed)
-            log_level="info",  # Change to "debug" for more detailed logs
+            max_tokens=150,  
+            n=1,  
+            stop=None,  
+            temperature=0.7, 
+            frequency_penalty=0.0,  
+            presence_penalty=0.0,  
+            log_level="info",  
         )
         generated_log_text = response.choices[0].text.strip()
 
